@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace _4GewinntWinForms
 {
-    public partial class Form1 : Form
+    public partial class SpielBrett : Form
     {
-        public Form1()
+        public SpielBrett()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace _4GewinntWinForms
 {
-    partial class Form1
+    partial class SpielBrett
     {
         /// <summary>
         /// Erforderliche Designervariable.
