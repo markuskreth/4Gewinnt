@@ -12,6 +12,10 @@ Design:
 -- Spielende: Spieler2 gewinnt
 - Spielzug Funktion kann in Background Thread in Forms ausgelagert werden. In ASPX kann Ergebnis per AJAX oder durch reload geholt werden.
 
+- Welche Elemente sollten im Business erweiterbar sein?
+-- Spielfeldgröße
+-- Anzahl der Steine in Reihe zum Gewinn (statt 4, auch 3 --> TicTacToe oder 5)
+-- dreidimensional?
 
 
 Klassen:

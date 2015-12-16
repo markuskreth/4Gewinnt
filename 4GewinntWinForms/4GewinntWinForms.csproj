@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>8ba96c26-0085-42d9-913b-2fd4baac874f</ProjectGuid>
+    <ProjectGuid>{1CBF6706-AD74-43AF-918B-39803511D0B8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>_4GewinntWinForms</RootNamespace>
-    <AssemblyName>_4GewinntWinForms</AssemblyName>
+    <AssemblyName>4GewinntWinForms</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
