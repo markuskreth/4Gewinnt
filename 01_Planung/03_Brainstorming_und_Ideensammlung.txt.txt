@@ -1,16 +1,21 @@
 Spielablauf
-- Welcher Spieler anfängt kann per Zufall angezeigt werden (Personen einigen sich, wer Spieler 1 ist, das Programm entscheidet dann zufällig welcher anfängt)
-- Besser ist es dann Spieler Rot und Spieler Gelb zu nennen.
-- Das wiederspricht aber der optionalen Anforderung, Spielerfarben ändern zu können.
-- Lösung: Es werden durch den Zufallsgenerator nur die Farben des ersten Spielers angezeigt, nicht in Worten.
+- Welcher Spieler anfängt kann per Zufall angezeigt werden (Personen einigen sich, wer Spieler Gelb ist, das Programm entscheidet dann zufällig welcher anfängt)
+- Wenn Farben änderbar sind, wird natürlich die geänderte Farbe des Start-Spielers angezeigt.
 
 Design:
 - Business und GUI getrennt und über Schnittstellen verbunden um GUI flexibel austauschen zu können.
-- Spielende wird vermutlich ein Event sein.
-- 
+- Spielevent mit folgenden Signalen:
+-- Spieler1 ist an der Reihe
+-- Spieler2 ist an der Reihe
+-- Spielende: Unentschieden
+-- Spielende: Spieler1 gewinnt
+-- Spielende: Spieler2 gewinnt
 
 
 Klassen:
 - Spalten könnten eine eigene Klasse werden - Steineinwurf erfolgt über eine oder andere Spalte, wo der Stein liegen bleibt hängt vom Füllstand ab.
 - Spalten haben einen Füllstand und bestehen aus den Steinfenstern (Steinplätze? Zellen?) --> Zellen
 - Eine Zelle kann den Status leer, spieler1 oder spieler2 haben.
+- Zellen und Spalten sind Business-Klassen
+- Spielfeld besteht aus 6x7 Array von Zellen.
+- 
