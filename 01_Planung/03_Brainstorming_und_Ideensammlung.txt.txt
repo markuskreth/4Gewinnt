@@ -4,12 +4,14 @@ Spielablauf
 
 Design:
 - Business und GUI getrennt und über Schnittstellen verbunden um GUI flexibel austauschen zu können.
-- Spielevent mit folgenden Signalen:
+- Spielzug wird an Business übergeben, Ergebnis ist einer der folgenden SpielStatus:
 -- Spieler1 ist an der Reihe
 -- Spieler2 ist an der Reihe
 -- Spielende: Unentschieden
 -- Spielende: Spieler1 gewinnt
 -- Spielende: Spieler2 gewinnt
+- Spielzug Funktion kann in Background Thread in Forms ausgelagert werden. In ASPX kann Ergebnis per AJAX oder durch reload geholt werden.
+
 
 
 Klassen:
