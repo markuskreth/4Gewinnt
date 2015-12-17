@@ -58,9 +58,15 @@ namespace _4GewinntWinForms.business
             CellState player;
 
             if (_currentState == GameState.Player1)
+            {
                 player = CellState.Player1;
+                _currentState = GameState.Player2;
+            }
             else //if (_currentState == GameState.Player2)
+            {
                 player = CellState.Player2;
+                _currentState = GameState.Player1;
+            }
 
             int row = 0;
             while (cells[column, row] != CellState.Empty)

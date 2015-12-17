@@ -5,7 +5,6 @@ using System;
 namespace _4GewinntTestProject
 {
     
-    
     /// <summary>
     ///Dies ist eine Testklasse für "BusinessTest" und soll
     ///alle BusinessTest Komponententests enthalten.
@@ -13,35 +12,16 @@ namespace _4GewinntTestProject
     [TestClass()]
     public class BusinessTest
     {
+        private Business target;
 
         #region Zusätzliche Testattribute
-        // 
-        //Sie können beim Verfassen Ihrer Tests die folgenden zusätzlichen Attribute verwenden:
-        //
-        //Mit ClassInitialize führen Sie Code aus, bevor Sie den ersten Test in der Klasse ausführen.
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //Mit ClassCleanup führen Sie Code aus, nachdem alle Tests in einer Klasse ausgeführt wurden.
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //Mit TestInitialize können Sie vor jedem einzelnen Test Code ausführen.
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //Mit TestCleanup können Sie nach jedem einzelnen Test Code ausführen.
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
+
+        [TestInitialize()]
+        public void MyTestInitialize()
+        {
+            target = new Business();
+        }
+
         #endregion
 
         /// <summary>
@@ -50,7 +30,6 @@ namespace _4GewinntTestProject
         [TestMethod()]
         public void BusinessConstructorTest()
         {
-            Business target = new Business();
             testInitState(target);
         }
 
@@ -60,7 +39,6 @@ namespace _4GewinntTestProject
         [TestMethod()]
         public void startNewGameTest()
         {
-            Business target = new Business();
             target.doMove(0);
             target.doMove(1);
 
@@ -68,7 +46,7 @@ namespace _4GewinntTestProject
             testInitState(target);
         }
 
-        private void testInitState(Business target)
+        private static void testInitState(Business target)
         {
 
             Assert.AreEqual(GameState.Player1, target.CurrentState);
@@ -86,7 +64,6 @@ namespace _4GewinntTestProject
         [TestMethod()]
         public void ensureDoMovechangesCorrectColumn()
         {
-            Business target = new Business();
             CellState[,] cells;
             int column;
 
@@ -98,7 +75,7 @@ namespace _4GewinntTestProject
             column = 5;
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+            Assert.AreEqual(CellState.Player2, cells[column, 0]);
 
             column = 4;
             target.doMove(column);
@@ -108,7 +85,7 @@ namespace _4GewinntTestProject
             column = 3;
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+            Assert.AreEqual(CellState.Player2, cells[column, 0]);
 
             column = 2;
             target.doMove(column);
@@ -118,7 +95,7 @@ namespace _4GewinntTestProject
             column = 1;
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+            Assert.AreEqual(CellState.Player2, cells[column, 0]);
 
             column = 0;
             target.doMove(column);
@@ -130,7 +107,6 @@ namespace _4GewinntTestProject
         [TestMethod()]
         public void ensureDoMovechangesCorrectColumnRow1()
         {
-            Business target = new Business();
             CellState[,] cells;
             int column;
 
@@ -138,50 +114,49 @@ namespace _4GewinntTestProject
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            Assert.AreEqual(CellState.Player2, cells[column, 1]);
 
             column = 5;
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            Assert.AreEqual(CellState.Player2, cells[column, 1]);
 
             column = 4;
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            Assert.AreEqual(CellState.Player2, cells[column, 1]);
 
             column = 3;
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            Assert.AreEqual(CellState.Player2, cells[column, 1]);
 
             column = 2;
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            Assert.AreEqual(CellState.Player2, cells[column, 1]);
 
             column = 1;
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            Assert.AreEqual(CellState.Player2, cells[column, 1]);
 
             column = 0;
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            Assert.AreEqual(CellState.Player2, cells[column, 1]);
 
         }
 
         [TestMethod()]
         public void ensureDoMovechangesCorrectColumnRow5()
         {
-            Business target = new Business();
             CellState[,] cells;
             int column;
 
@@ -193,7 +168,7 @@ namespace _4GewinntTestProject
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+            Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
             column = 5;
             target.doMove(column);
@@ -203,7 +178,7 @@ namespace _4GewinntTestProject
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+            Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
             column = 4;
             target.doMove(column);
@@ -213,7 +188,7 @@ namespace _4GewinntTestProject
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+            Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
             column = 3;
             target.doMove(column);
@@ -223,7 +198,7 @@ namespace _4GewinntTestProject
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+            Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
             column = 2;
             target.doMove(column);
@@ -233,7 +208,7 @@ namespace _4GewinntTestProject
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+            Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
             column = 1;
             target.doMove(column);
@@ -243,7 +218,7 @@ namespace _4GewinntTestProject
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+            Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
             column = 0;
             target.doMove(column);
@@ -253,15 +228,13 @@ namespace _4GewinntTestProject
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+            Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
         }
 
         [TestMethod()]
         public void ensureDoMoveRow6Throws()
         {
-            Business target = new Business();
-            
             int column;
 
             column = 6;
@@ -278,6 +251,32 @@ namespace _4GewinntTestProject
             }
             catch (Exception) { }
 
+        }
+
+        [TestMethod()]
+        public void ensureDoMoveChangesPlayer()
+        {
+            GameState state;
+
+            state = target.doMove(0);
+            Assert.AreEqual(GameState.Player2, state);
+            Assert.AreEqual(GameState.Player2, target.CurrentState);
+
+            state = target.doMove(0);
+            Assert.AreEqual(GameState.Player1, state);
+            Assert.AreEqual(GameState.Player1, target.CurrentState);
+
+            state = target.doMove(0);
+            Assert.AreEqual(GameState.Player2, state);
+            Assert.AreEqual(GameState.Player2, target.CurrentState);
+
+            state = target.doMove(2);
+            Assert.AreEqual(GameState.Player1, state);
+            Assert.AreEqual(GameState.Player1, target.CurrentState);
+
+            state = target.doMove(2);
+            Assert.AreEqual(GameState.Player2, state);
+            Assert.AreEqual(GameState.Player2, target.CurrentState);
         }
     }
 }
