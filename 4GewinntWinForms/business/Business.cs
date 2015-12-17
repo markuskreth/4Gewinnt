@@ -16,6 +16,17 @@ namespace _4GewinntWinForms.business
         }
 
         /// <summary>
+        /// Aktuelle Zellen (unmodifiable)
+        /// </summary>
+        public CellState[,] Cells
+        {
+            get
+            {
+                return (CellState[,])cells.Clone();
+            }
+        }
+
+        /// <summary>
         /// Startet ein ein neues Spiel, ein laufendes wird verworfen.
         /// </summary>
         /// <returns></returns>
