@@ -126,5 +126,158 @@ namespace _4GewinntTestProject
             Assert.AreEqual(CellState.Player1, cells[column, 0]);
 
         }
+
+        [TestMethod()]
+        public void ensureDoMovechangesCorrectColumnRow1()
+        {
+            Business target = new Business();
+            CellState[,] cells;
+            int column;
+
+            column = 6;
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+
+            column = 5;
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+
+            column = 4;
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+
+            column = 3;
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+
+            column = 2;
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+
+            column = 1;
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+
+            column = 0;
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+
+        }
+
+        [TestMethod()]
+        public void ensureDoMovechangesCorrectColumnRow5()
+        {
+            Business target = new Business();
+            CellState[,] cells;
+            int column;
+
+            column = 6;
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+
+            column = 5;
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+
+            column = 4;
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+
+            column = 3;
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+
+            column = 2;
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+
+            column = 1;
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+
+            column = 0;
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 5]);
+
+        }
+
+        [TestMethod()]
+        public void ensureDoMoveRow6Throws()
+        {
+            Business target = new Business();
+            
+            int column;
+
+            column = 6;
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            target.doMove(column);
+            try
+            {
+                target.doMove(column);
+                Assert.Fail("Exception expected, but not thrown");
+            }
+            catch (Exception) { }
+
+        }
     }
 }
