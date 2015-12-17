@@ -63,6 +63,8 @@ namespace _4GewinntTestProject
             Business target = new Business();
             target.doMove(0);
             target.doMove(1);
+
+            target.startNewGame();
             testInitState(target);
         }
 
@@ -81,5 +83,48 @@ namespace _4GewinntTestProject
 
         }
 
+        [TestMethod()]
+        public void ensureDoMovechangesCorrectColumn()
+        {
+            Business target = new Business();
+            CellState[,] cells;
+            int column;
+
+            column = 6;
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+
+            column = 5;
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+
+            column = 4;
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+
+            column = 3;
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+
+            column = 2;
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+
+            column = 1;
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+
+            column = 0;
+            target.doMove(column);
+            cells = target.Cells;
+            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+
+        }
     }
 }

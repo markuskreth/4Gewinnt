@@ -55,6 +55,15 @@ namespace _4GewinntWinForms.business
         /// <returns></returns>
         public GameState doMove(int column)
         {
+            CellState player;
+
+            if (_currentState == GameState.Player1)
+                player = CellState.Player1;
+            else //if (_currentState == GameState.Player2)
+                player = CellState.Player2;
+            
+            cells[column, 0] = player;
+
             return _currentState;
         }
     }
