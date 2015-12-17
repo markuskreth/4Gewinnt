@@ -10,20 +10,8 @@ namespace _4GewinntTestProject
     ///alle BusinessTest Komponententests enthalten.
     ///</summary>
     [TestClass()]
-    public class BusinessTest
+    public class BusinessCellStateTest : AbstractBusinessTest 
     {
-        private Business target;
-
-        #region Zusätzliche Testattribute
-
-        [TestInitialize()]
-        public void MyTestInitialize()
-        {
-            target = new Business();
-        }
-
-        #endregion
-
         /// <summary>
         ///Ein Test für "Business-Konstruktor"
         ///</summary>
@@ -262,30 +250,5 @@ namespace _4GewinntTestProject
 
         }
 
-        [TestMethod()]
-        public void ensureDoMoveChangesPlayer()
-        {
-            GameState state;
-
-            state = target.doMove(0);
-            Assert.AreEqual(GameState.Player2, state);
-            Assert.AreEqual(GameState.Player2, target.CurrentState);
-
-            state = target.doMove(0);
-            Assert.AreEqual(GameState.Player1, state);
-            Assert.AreEqual(GameState.Player1, target.CurrentState);
-
-            state = target.doMove(0);
-            Assert.AreEqual(GameState.Player2, state);
-            Assert.AreEqual(GameState.Player2, target.CurrentState);
-
-            state = target.doMove(2);
-            Assert.AreEqual(GameState.Player1, state);
-            Assert.AreEqual(GameState.Player1, target.CurrentState);
-
-            state = target.doMove(2);
-            Assert.AreEqual(GameState.Player2, state);
-            Assert.AreEqual(GameState.Player2, target.CurrentState);
-        }
     }
 }
