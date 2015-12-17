@@ -62,6 +62,15 @@ namespace _4GewinntTestProject
         }
 
         [TestMethod()]
+        public void ensureCellPropertyCanNotChangeGame()
+        {
+            CellState[,] cells;
+            cells = target.Cells;
+            cells[1, 1] = CellState.Player1;
+            Assert.AreEqual(CellState.Empty, target.Cells[1, 1]);
+        }
+
+        [TestMethod()]
         public void ensureDoMovechangesCorrectColumn()
         {
             CellState[,] cells;
