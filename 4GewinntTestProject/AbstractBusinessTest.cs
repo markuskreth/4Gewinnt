@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using _4GewinntWinForms.business;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using _4GewinntWinForms.business;
 
 namespace _4GewinntTestProject
 {
-    class AbstractBusinessTest
+    public class AbstractBusinessTest
     {
 
         protected Business target;

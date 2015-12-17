@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _4GewinntWinForms.business
 {
-    class Business
+    public class Business
     {
         private GameState _currentState = GameState.Tie;
         private CellState[,] cells;

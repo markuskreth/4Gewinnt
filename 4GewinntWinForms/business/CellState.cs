@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _4GewinntWinForms.business
 {
-    enum  CellState
+    public enum  CellState
     {
         Empty,
         /// <summary>
