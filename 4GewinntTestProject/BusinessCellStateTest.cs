@@ -59,7 +59,7 @@ namespace _4GewinntTestProject
         }
 
         [TestMethod()]
-        public void ensureDoMovechangesCorrectColumn()
+        public void ensureDoMovechangesCorrectColumnRow0()
         {
             CellState[,] cells;
             int column;
@@ -107,47 +107,43 @@ namespace _4GewinntTestProject
             CellState[,] cells;
             int column;
 
+            fillLines(1);
+
             column = 6;
-            target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
             Assert.AreEqual(CellState.Player2, cells[column, 1]);
 
             column = 5;
             target.doMove(column);
-            target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 1]);
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
 
+            target.doMove(column);
             column = 4;
             target.doMove(column);
-            target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 1]);
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
 
             column = 3;
-            target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
             Assert.AreEqual(CellState.Player2, cells[column, 1]);
 
             column = 2;
             target.doMove(column);
-            target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 1]);
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
 
             column = 1;
-            target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
             Assert.AreEqual(CellState.Player2, cells[column, 1]);
 
             column = 0;
             target.doMove(column);
-            target.doMove(column);
             cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 1]);
+            Assert.AreEqual(CellState.Player1, cells[column, 1]);
 
         }
 
@@ -157,11 +153,9 @@ namespace _4GewinntTestProject
             CellState[,] cells;
             int column;
 
+            fillLines(4);
+
             column = 6;
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
@@ -170,38 +164,22 @@ namespace _4GewinntTestProject
             column = 5;
             target.doMove(column);
             target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
             cells = target.Cells;
             Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
             column = 4;
             target.doMove(column);
             target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
             cells = target.Cells;
             Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
-            column = 3;
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 5]);
+            //column = 3;
+            //target.doMove(column);
+            //target.doMove(column);
+            //cells = target.Cells;
+            //Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
             column = 2;
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
             target.doMove(column);
             target.doMove(column);
             cells = target.Cells;
@@ -210,23 +188,33 @@ namespace _4GewinntTestProject
             column = 1;
             target.doMove(column);
             target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
             cells = target.Cells;
             Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
             column = 0;
             target.doMove(column);
             target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
-            target.doMove(column);
             cells = target.Cells;
             Assert.AreEqual(CellState.Player2, cells[column, 5]);
 
+        }
+
+        //[TestMethod()]
+        //public void testFillLines()
+        //{
+        //    fillLines(6);
+        //    Assert.AreEqual(GameState.Tie, target.CurrentState);
+        //}
+
+        private void fillLines(int lineCount)
+        {
+            for (int y = 0; y < lineCount; y++)
+            {
+                for (int x = 0; x < 7; x++)
+                {
+                    target.doMove(x);
+                }
+            }
         }
 
         [TestMethod()]

@@ -7,11 +7,14 @@ namespace _4GewinntWinForms.business
 {
     public class Business
     {
-        private GameState _currentState = GameState.Tie;
-        private CellState[,] cells;
-
+        private GameStateChecker checker;
+        private GameState _currentState;
+        private CellField cells;
+        
         public Business()
         {
+            checker = new GameStateChecker();
+            _currentState = GameState.Tie;
             startNewGame();
         }
 
@@ -22,7 +25,7 @@ namespace _4GewinntWinForms.business
         {
             get
             {
-                return (CellState[,])cells.Clone();
+                return cells.Cells();
             }
         }
 
@@ -32,7 +35,7 @@ namespace _4GewinntWinForms.business
         /// <returns></returns>
         public GameState startNewGame()
         {
-            cells = new CellState[7, 6];
+            cells = new CellField(7,6);
             _currentState = GameState.Player1;
             return _currentState;
         }
@@ -56,25 +59,33 @@ namespace _4GewinntWinForms.business
         public GameState doMove(int column)
         {
             CellState player;
+            GameState nextState = _currentState;
 
             if (_currentState == GameState.Player1)
             {
                 player = CellState.Player1;
-                _currentState = GameState.Player2;
+                nextState = GameState.Player2;
             }
             else //if (_currentState == GameState.Player2)
             {
                 player = CellState.Player2;
-                _currentState = GameState.Player1;
+                nextState = GameState.Player1;
             }
 
             int row = 0;
-            while (cells[column, row] != CellState.Empty)
+            while (cells.get(column, row) != CellState.Empty)
                 row++;
 
-            cells[column, row] = player;
+            cells.set(column, row, player);
 
+            nextState = checker.checkGameEnd(cells, _currentState, column, row);
+            _currentState = nextState;
             return _currentState;
+        }
+
+        public override string ToString()
+        {
+            return cells.ToString();
         }
     }
 }

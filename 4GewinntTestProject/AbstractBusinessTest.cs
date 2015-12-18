@@ -7,7 +7,8 @@ using _4GewinntWinForms.business;
 
 namespace _4GewinntTestProject
 {
-    public class AbstractBusinessTest
+    [TestClass()]
+    public abstract class AbstractBusinessTest
     {
 
         protected Business target;
