@@ -15,13 +15,13 @@ namespace _4GewinntWinForms.business
         {
             GameState _currentState = map(cells.get(column, row));
 
-            LineChecker checker = new VerticalLineChecker(cells);
+            ConnectedFieldsChecker checker = new ConnectedFieldsCheckerVertical(cells);
             rowLength = checker.check(column, row);
 
             if (rowLength == 4)
                 return makePlayerWin(_currentState);
 
-            checker = new HorizontalLineChecker(cells);
+            checker = new ConnectedFieldsCheckerHorizontal(cells);
             rowLength = checker.check(column, row);
 
             if (rowLength == 4)
@@ -29,7 +29,7 @@ namespace _4GewinntWinForms.business
 
             return switchPlayer(_currentState);
         }
-                
+
         private delegate bool Condition();
 
         private void countRowItems(Condition con)
@@ -48,7 +48,7 @@ namespace _4GewinntWinForms.business
 
             if (cellState == CellState.Player2)
                 return GameState.Player2;
-            
+
             return GameState.Tie;
         }
 

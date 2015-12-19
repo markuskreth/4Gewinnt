@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _4GewinntWinForms.business
 {
-    public enum  GameState
+    public enum GameState
     {
         /// <summary>
         /// Spieler 1 ist am Zug

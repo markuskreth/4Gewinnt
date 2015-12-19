@@ -5,13 +5,13 @@ using System.Text;
 
 namespace _4GewinntWinForms.business
 {
-    class VerticalLineChecker : LineChecker
+    class ConnectedFieldsCheckerVertical : ConnectedFieldsChecker
     {
-        public VerticalLineChecker(CellField cells)
+        public ConnectedFieldsCheckerVertical(CellField cells)
             : base(cells)
         { }
 
-        protected override void countConnected(int column, int row)
+        protected override void countConnected1(int column, int row)
         {
 
             CellState item = cells.get(column, row);
@@ -20,8 +20,7 @@ namespace _4GewinntWinForms.business
             tmp = 1;
             Condition con = delegate()
             {
-                bool result = rowLength < 4;
-                result &= row + tmp < cells.GetLength1();
+                bool result = row + tmp < cells.GetLength1();
                 if (result)
                     result &= cells.get(column, row + tmp) == item;
                 return result;
@@ -29,11 +28,15 @@ namespace _4GewinntWinForms.business
 
             countRowItems(con);
 
+        }
+
+        protected override void countConnected2(int column, int row)
+        {
+
             tmp = 1;
-            con = delegate()
+            Condition con = delegate()
             {
-                bool result = rowLength < 4;
-                result &= row - tmp >= 0;
+                bool result = row - tmp >= 0;
                 if (result)
                     result &= cells.get(column, row - tmp) == item;
                 return result;

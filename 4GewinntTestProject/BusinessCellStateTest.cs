@@ -4,13 +4,13 @@ using _4GewinntWinForms.business;
 
 namespace _4GewinntTestProject
 {
-    
+
     /// <summary>
     ///Dies ist eine Testklasse für "BusinessTest" und soll
     ///alle BusinessTest Komponententests enthalten.
     ///</summary>
     [TestClass()]
-    public class BusinessCellStateTest : AbstractBusinessTest 
+    public class BusinessCellStateTest : AbstractBusinessTest
     {
         /// <summary>
         ///Ein Test für "Business-Konstruktor"
@@ -42,7 +42,7 @@ namespace _4GewinntTestProject
             Assert.AreEqual(7, cells.GetLength(0));
             Assert.AreEqual(6, cells.GetLength(1));
 
-            foreach (var cell in cells )
+            foreach (var cell in cells)
             {
                 Assert.AreEqual(CellState.Empty, cell);
             }

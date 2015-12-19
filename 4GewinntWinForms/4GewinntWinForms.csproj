@@ -46,14 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="business\HorizontalLineChecker.cs" />
-    <Compile Include="business\LineChecker.cs" />
+    <Compile Include="business\ConnectedFieldsCheckerHorizontal.cs" />
+    <Compile Include="business\ConnectedFieldsChecker.cs" />
     <Compile Include="business\Business.cs" />
     <Compile Include="business\CellField.cs" />
     <Compile Include="business\CellState.cs" />
     <Compile Include="business\GameState.cs" />
     <Compile Include="business\GameStateChecker.cs" />
-    <Compile Include="business\VerticalLineChecker.cs" />
+    <Compile Include="business\ConnectedFieldsCheckerVertical.cs" />
     <Compile Include="SpielBrett.cs">
       <SubType>Form</SubType>
     </Compile>

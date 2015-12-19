@@ -10,7 +10,7 @@ namespace _4GewinntWinForms.business
         private GameStateChecker checker;
         private GameState _currentState;
         private CellField cells;
-        
+
         public Business()
         {
             checker = new GameStateChecker();
@@ -35,7 +35,7 @@ namespace _4GewinntWinForms.business
         /// <returns></returns>
         public GameState startNewGame()
         {
-            cells = new CellField(7,6);
+            cells = new CellField(7, 6);
             _currentState = GameState.Player1;
             return _currentState;
         }

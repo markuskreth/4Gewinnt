@@ -4,8 +4,7 @@ using System;
 
 namespace _4GewinntTestProject
 {
-    
-    
+
     /// <summary>
     ///Dies ist eine Testklasse für "GameStateCheckerTest" und soll
     ///alle GameStateCheckerTest Komponententests enthalten.
@@ -97,19 +96,19 @@ namespace _4GewinntTestProject
             int row = 5;
             GameState expected = GameState.Player1HasWon;
             GameState actual;
-            actual = target.checkGameEnd(cells,  column, row);
+            actual = target.checkGameEnd(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 1;
-            actual = target.checkGameEnd(cells,  column, row);
+            actual = target.checkGameEnd(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 2;
-            actual = target.checkGameEnd(cells,  column, row);
+            actual = target.checkGameEnd(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 3;
-            actual = target.checkGameEnd(cells,  column, row);
+            actual = target.checkGameEnd(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }

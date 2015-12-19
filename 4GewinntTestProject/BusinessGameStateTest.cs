@@ -8,7 +8,7 @@ using _4GewinntWinForms.business;
 namespace _4GewinntTestProject
 {
     [TestClass]
-    public class BusinessGameStateTest : AbstractBusinessTest 
+    public class BusinessGameStateTest : AbstractBusinessTest
     {
 
         [TestMethod()]

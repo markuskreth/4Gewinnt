@@ -4,8 +4,7 @@ using System;
 
 namespace _4GewinntTestProject
 {
-    
-    
+
     /// <summary>
     ///Dies ist eine Testklasse für "BusinessTest" und soll
     ///alle BusinessTest Komponententests enthalten.
