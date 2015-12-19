@@ -37,5 +37,24 @@ namespace _4GewinntTestProject
             Assert.AreEqual(GameState.Player2, target.CurrentState);
         }
 
+        [TestMethod()]
+        public void leftBottomHorizontal4Wins()
+        {
+            GameState state;
+
+            state = target.doMove(0);
+            state = target.doMove(0);   // Player 2
+            state = target.doMove(1);
+            state = target.doMove(0);   // Player 2
+            state = target.doMove(2);
+            state = target.doMove(0);   // Player 2
+
+            Assert.AreEqual(GameState.Player1, state);
+
+            state = target.doMove(3);
+            Assert.AreEqual(GameState.Player1HasWon, state);
+
+        }
+
     }
 }
