@@ -78,7 +78,7 @@ namespace _4GewinntWinForms.business
 
             cells.set(column, row, player);
 
-            nextState = checker.checkGameEnd(cells, _currentState, column, row);
+            nextState = checker.checkGameEnd(cells, column, row);
             _currentState = nextState;
             return _currentState;
         }

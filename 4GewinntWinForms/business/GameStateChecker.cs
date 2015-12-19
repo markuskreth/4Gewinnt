@@ -5,87 +5,38 @@ using System.Text;
 
 namespace _4GewinntWinForms.business
 {
-    class GameStateChecker
+    public class GameStateChecker
     {
 
         private int rowLength = 1;
         private int tmp = 1;
 
-        public GameState checkGameEnd(CellField cells, GameState _currentState, int column, int row)
+        public GameState checkGameEnd(CellField cells, int column, int row)
         {
-            CellState item = cells.get(column, row);
-            GameState nextState = map(item);
-            
-            rowLength = 1;
-            tmp = 1;
-            Condition con = delegate() 
-            { 
-                bool result = rowLength < 4;
-                result &= row + tmp < cells.GetLength1();
-                if (result)
-                    result &= cells.get(column, row + tmp) == item;
-                return result; 
-            };
+            GameState _currentState = map(cells.get(column, row));
 
-            CalcTmp calc = delegate() { 
-                tmp++; 
-            };
-            countRowItems(con, calc);
-
-            tmp = 1;
-            con = delegate()
-            { 
-                bool result = rowLength < 4;
-                result &= row - tmp >= 0;
-                if (result)
-                    result &= cells.get(column, row - tmp) == item;
-                return result; 
-            };
-            calc = delegate() { tmp++; };
-            countRowItems(con, calc);
+            LineChecker checker = new VerticalLineChecker(cells);
+            rowLength = checker.check(column, row);
 
             if (rowLength == 4)
-                return makePlayerWin(nextState);
+                return makePlayerWin(_currentState);
 
-            rowLength = 1;
-            tmp = 1;
-            con = delegate()
-            {
-                bool result = rowLength < 4;
-                result &= column + tmp < cells.GetLength0();
-                if (result)
-                    result &= cells.get(column + tmp, row) == item;
-                return result;
-            };
-            calc = delegate() { tmp++; };
-            countRowItems(con, calc);
-
-            tmp = 1;
-            con = delegate()
-            {
-                bool result = rowLength < 4;
-                result &= column - tmp >= 0;
-                if (result)
-                    result &= cells.get(column - tmp, row) == item;
-                return result;
-            };
-            calc = delegate() { tmp++; };
-            countRowItems(con, calc);
+            checker = new HorizontalLineChecker(cells);
+            rowLength = checker.check(column, row);
 
             if (rowLength == 4)
-                return makePlayerWin(nextState);
+                return makePlayerWin(_currentState);
 
-            return switchPlayer(nextState);
+            return switchPlayer(_currentState);
         }
-        
+                
         private delegate bool Condition();
-        private delegate void CalcTmp();
 
-        private void countRowItems(Condition con, CalcTmp calc)
+        private void countRowItems(Condition con)
         {
             while (con.Invoke())
             {
-                calc.Invoke();
+                tmp++;
                 rowLength++;
             }
         }
