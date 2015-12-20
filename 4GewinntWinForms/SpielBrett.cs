@@ -30,8 +30,6 @@ namespace _4GewinntWinForms
             cellControlls = new Dictionary<int, CellControl>();
             InitializeComponent();
             this.business = new business.Business();
-            initCells();
-            showNewGameState();
         }
 
         private Color GameStateToColor(GameState state)
@@ -80,7 +78,6 @@ namespace _4GewinntWinForms
                     return "";
             }
         }
-
 
         private void initCells()
         {
@@ -240,6 +237,32 @@ namespace _4GewinntWinForms
             {
                 cell.Value.Invalidate();
             }
+        }
+
+        private void SpielBrett_Load(object sender, EventArgs e)
+        {
+            this.Player1Name = Properties.Settings.Default.Player1Name;
+            this.Player2Name = Properties.Settings.Default.Player2Name;
+
+            this.player1Color = Properties.Settings.Default.Player1Color;
+            this.player2Color = Properties.Settings.Default.Player2Color;
+            this.randomStartPlayerAlways = Properties.Settings.Default.RandomStartPlayer;
+
+            initCells();
+            showNewGameState();
+        }
+
+        private void SpielBrett_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            Properties.Settings.Default.Player1Name = this.Player1Name;
+            Properties.Settings.Default.Player2Name = this.Player2Name;
+
+            Properties.Settings.Default.Player1Color = this.player1Color;
+            Properties.Settings.Default.Player2Color = this.player2Color;
+            this.randomStartPlayerAlways = Properties.Settings.Default.RandomStartPlayer;
+
+            Properties.Settings.Default.Save();
         }
 
     }

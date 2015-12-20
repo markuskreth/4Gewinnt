@@ -189,6 +189,8 @@
             this.MainMenuStrip = this.mainMenu;
             this.Name = "SpielBrett";
             this.Text = "Vier Gewinnt";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpielBrett_FormClosing);
+            this.Load += new System.EventHandler(this.SpielBrett_Load);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
