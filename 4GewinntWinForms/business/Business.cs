@@ -106,9 +106,26 @@ namespace _4GewinntWinForms.business
 
             if (connected.Count >= 4)
                 nextState = makePlayerWin(player);
+            else if (isFieldFull())
+                nextState = GameState.Tie;
 
             _currentState = nextState;
             return _currentState;
+        }
+
+        private bool isFieldFull()
+        {
+            bool nothingEmpty = true;
+            for (int column = 0; column < cells.ColumnCount(); column++)
+            {
+                if (cells.get(column, cells.RowCount() - 1) == CellState.Empty)
+                {
+                    nothingEmpty = false;
+                    break;
+                }
+            }
+            
+            return nothingEmpty;
         }
 
         private GameState makePlayerWin(CellState state)

@@ -211,25 +211,6 @@ namespace _4GewinntTestProject
 
         }
 
-        private void fillLines(int lineCount)
-        {
-            for (int y = 0; y < lineCount; y++)
-            {
-                for (int x = 0; x < target.ColumnCount; x++)
-                {
-                    if (x == 3)
-                    {
-                        target.doMove(4);
-                        target.doMove(x);
-                        x++;
-                        continue;
-                    }
-
-                    target.doMove(x);
-                }
-            }
-        }
-
         [TestMethod()]
         public void ensureDoMoveRow6Throws()
         {

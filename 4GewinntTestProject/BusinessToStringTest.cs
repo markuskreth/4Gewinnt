@@ -6,23 +6,11 @@ namespace _4GewinntTestProject
 {
 
     /// <summary>
-    ///Dies ist eine Testklasse für "BusinessTest" und soll
-    ///alle BusinessTest Komponententests enthalten.
+    ///Dies ist eine Testklasse für "Business", die insbesondere für Debugging die ToString Methode testet.
     ///</summary>
     [TestClass()]
-    public class BusinessTest
+    public class BusinessToStringTest : AbstractBusinessTest
     {
-        Business target;
-
-        #region Zusätzliche Testattribute
-
-        [TestInitialize()]
-        public void MyTestInitialize()
-        {
-            target = new Business();
-        }
-
-        #endregion
 
         [TestMethod()]
         public void ToStringOnEmptyTest()

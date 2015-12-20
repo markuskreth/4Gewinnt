@@ -93,7 +93,7 @@ namespace _4GewinntWinForms
 
         void cellControlClick(object sender, EventArgs e)
         {
-            if (business.CurrentState == GameState.Player2HasWon || business.CurrentState == GameState.Player1HasWon)
+            if (business.CurrentState == GameState.Player2HasWon || business.CurrentState == GameState.Player1HasWon || business.CurrentState == GameState.Tie)
             {
                 showNewGameState();
             }

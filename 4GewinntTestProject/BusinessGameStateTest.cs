@@ -65,5 +65,33 @@ namespace _4GewinntTestProject
 
         }
 
+        [TestMethod()]
+        public void ensureFullFielEndsGameWithTie()
+        {
+            fillLines(5);
+
+            GameState state;
+            state = target.doMove(0);
+            Assert.AreEqual(GameState.Player1, state);
+
+            state = target.doMove(1);
+            Assert.AreEqual(GameState.Player2, state);
+
+            state = target.doMove(2);
+            Assert.AreEqual(GameState.Player1, state);
+
+            state = target.doMove(4);
+            Assert.AreEqual(GameState.Player2, state);
+
+            state = target.doMove(3);
+            Assert.AreEqual(GameState.Player1, state);
+
+            state = target.doMove(5);
+            Assert.AreEqual(GameState.Player2, state);
+
+            state = target.doMove(6);
+            Assert.AreEqual(GameState.Tie, state);
+
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpielBrett));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.menuItemFile = new System.Windows.Forms.ToolStripMenuItem();
             this.neuesSpielToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,8 +38,11 @@
             this.toolStripStatusPlayer = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripColor = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusColor = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonNewGame = new System.Windows.Forms.ToolStripButton();
             this.mainMenu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -88,7 +92,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 28);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 64);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -97,7 +101,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(453, 361);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(453, 395);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // statusStrip1
@@ -107,7 +111,7 @@
             this.toolStripStatusPlayer,
             this.toolStripColor,
             this.toolStripStatusColor});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 392);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 462);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(478, 50);
             this.statusStrip1.TabIndex = 2;
@@ -131,11 +135,31 @@
             this.toolStripStatusColor.Name = "toolStripStatusColor";
             this.toolStripStatusColor.Size = new System.Drawing.Size(90, 45);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonNewGame});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(478, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonNewGame
+            // 
+            this.toolStripButtonNewGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonNewGame.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNewGame.Image")));
+            this.toolStripButtonNewGame.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonNewGame.Name = "toolStripButtonNewGame";
+            this.toolStripButtonNewGame.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonNewGame.Text = "toolStripButton1";
+            // 
             // SpielBrett
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 442);
+            this.ClientSize = new System.Drawing.Size(478, 512);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.mainMenu);
@@ -146,6 +170,8 @@
             this.mainMenu.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,6 +188,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusPlayer;
         private System.Windows.Forms.ToolStripStatusLabel toolStripColor;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusColor;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonNewGame;
     }
 }
 
