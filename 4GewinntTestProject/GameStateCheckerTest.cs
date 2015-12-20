@@ -50,19 +50,19 @@ namespace _4GewinntTestProject
             koord = 0;
             
             CellValueList actual;
-            actual = target.checkGameEnd(cells, koord, koord);
+            actual = target.findConnectedLines(cells, koord, koord);
             Assert.AreEqual(expected, actual);
 
             koord++;
-            actual = target.checkGameEnd(cells, koord, koord);
+            actual = target.findConnectedLines(cells, koord, koord);
             Assert.AreEqual(expected, actual);
 
             koord++;
-            actual = target.checkGameEnd(cells, koord, koord);
+            actual = target.findConnectedLines(cells, koord, koord);
             Assert.AreEqual(expected, actual);
 
             koord++;
-            actual = target.checkGameEnd(cells, koord, koord);
+            actual = target.findConnectedLines(cells, koord, koord);
             Assert.AreEqual(expected, actual);
 
         }
@@ -90,19 +90,19 @@ namespace _4GewinntTestProject
             koord = 0;
 
             CellValueList actual;
-            actual = target.checkGameEnd(cells, koord, 5 - koord);
+            actual = target.findConnectedLines(cells, koord, 5 - koord);
             Assert.AreEqual(expected, actual);
 
             koord++;
-            actual = target.checkGameEnd(cells, koord, 5 - koord);
+            actual = target.findConnectedLines(cells, koord, 5 - koord);
             Assert.AreEqual(expected, actual);
 
             koord++;
-            actual = target.checkGameEnd(cells, koord, 5 - koord);
+            actual = target.findConnectedLines(cells, koord, 5 - koord);
             Assert.AreEqual(expected, actual);
 
             koord++;
-            actual = target.checkGameEnd(cells, koord, 5 - koord);
+            actual = target.findConnectedLines(cells, koord, 5 - koord);
             Assert.AreEqual(expected, actual);
 
         }
@@ -133,19 +133,19 @@ namespace _4GewinntTestProject
             column = 0;
             
             CellValueList actual;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 1;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 2;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 3;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }
@@ -176,19 +176,19 @@ namespace _4GewinntTestProject
             column = 2;
 
             CellValueList actual;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 3;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 4;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 5;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }
@@ -220,19 +220,19 @@ namespace _4GewinntTestProject
             column = 0;
 
             CellValueList actual;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 1;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 2;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 3;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }
@@ -264,19 +264,19 @@ namespace _4GewinntTestProject
             column = 2;
 
             CellValueList actual;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 3;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 4;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 5;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }
@@ -308,19 +308,19 @@ namespace _4GewinntTestProject
             column = 1;
 
             CellValueList actual;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 2;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 3;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             column = 4;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }
@@ -351,19 +351,19 @@ namespace _4GewinntTestProject
 
             row = 0;
             CellValueList actual;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 1;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 2;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 3;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }
@@ -395,19 +395,19 @@ namespace _4GewinntTestProject
             CellValueList actual;
 
             row = 2;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 3;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 4;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 5;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }
@@ -439,19 +439,19 @@ namespace _4GewinntTestProject
             row = 0;
 
             CellValueList actual;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 1;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 2;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 3;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }
@@ -483,19 +483,19 @@ namespace _4GewinntTestProject
             CellValueList actual;
             
             row = 2;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 3;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 4;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 5;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }
@@ -527,19 +527,19 @@ namespace _4GewinntTestProject
             CellValueList actual;
 
             row = 1;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 2;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 3;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row = 4;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }
@@ -575,22 +575,22 @@ namespace _4GewinntTestProject
             
             column = 0;
             row = 0;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row++;
             column++;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row++;
             column++;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
             row++;
             column++;
-            actual = target.checkGameEnd(cells, column, row);
+            actual = target.findConnectedLines(cells, column, row);
             Assert.AreEqual(expected, actual);
 
         }

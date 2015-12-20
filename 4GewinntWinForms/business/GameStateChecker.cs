@@ -18,7 +18,7 @@ namespace _4GewinntWinForms.business
             checkerList.Add(new ConnectedFieldsCheckerDiagonal2());
         }
 
-        public CellValueList checkGameEnd(CellField cells, int column, int row)
+        public CellValueList findConnectedLines(CellField cells, int column, int row)
         {
             GameState _currentState = map(cells.get(column, row));
             CellValueList values;

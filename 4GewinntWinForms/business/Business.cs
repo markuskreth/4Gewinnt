@@ -102,7 +102,7 @@ namespace _4GewinntWinForms.business
                 row++;
 
             cells.set(column, row, player);
-            List<CellValue> connected = checker.checkGameEnd(cells, column, row);
+            List<CellValue> connected = checker.findConnectedLines(cells, column, row);
 
             if (connected.Count >= 4)
                 nextState = makePlayerWin(player);
