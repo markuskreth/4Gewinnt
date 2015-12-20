@@ -17,6 +17,8 @@ namespace _4GewinntWinForms
         private bool randomStartPlayerAlways = false;
         private Color player1Color = Color.Red;
         private Color player2Color = Color.Yellow;
+        private String Player1Name = "Player 1";
+        private String Player2Name = "Player 2";
 
         /// <summary>
         /// Der Index jedes CellControls wird berechnet durch Row * 100 + Column
@@ -49,31 +51,31 @@ namespace _4GewinntWinForms
 
         }
 
-        private String GameStateToSting(GameState state)
+        private String StateToSting(GameState state)
         {
             String playerName = "";
 
             switch (state)
             {
                 case GameState.Player1:
-                    return "Spieler";
+                    return "An der Reihe: " + Player1Name + " ";
                 case GameState.Player2:
-                    return "Spieler";
+                    return "An der Reihe: " + Player2Name + " ";
                 case GameState.Tie:
                     return "Spiel beendet: Unentschieden";
                 case GameState.Player1HasWon:
                     if (player1Color.IsNamedColor)
-                        playerName = player1Color.Name;
+                        playerName = Player1Name ;
                     else
                         playerName = " 1";
-                    return "Spiel beendet: Spieler " + playerName + " hat gewonnen!";
+                    return "Spiel beendet: " + playerName + " hat gewonnen!";
                 case GameState.Player2HasWon:
 
                     if (player2Color.IsNamedColor)
-                        playerName = player2Color.Name;
+                        playerName = Player2Name;
                     else
                         playerName = " 2";
-                    return "Spiel beendet: Spieler " + playerName + " hat gewonnen!";
+                    return "Spiel beendet: " + playerName + " hat gewonnen!";
                 default:
                     return "";
             }
@@ -150,10 +152,10 @@ namespace _4GewinntWinForms
         private void showNewGameState()
         {
             toolStripStatusColor.BackColor = GameStateToColor(business.CurrentState);
-            toolStripStatusPlayer.Text = GameStateToSting(business.CurrentState);
+            toolStripStatusPlayer.Text = StateToSting(business.CurrentState);
             if (business.CurrentState == GameState.Player2HasWon || business.CurrentState == GameState.Player1HasWon || business.CurrentState == GameState.Tie)
             {
-                DialogResult result =  MessageBox.Show(this, GameStateToSting(business.CurrentState) + "\r\n" + "Neues Spiel beginnen?", "Spiel beendet", MessageBoxButtons.YesNo);
+                DialogResult result =  MessageBox.Show(this, StateToSting(business.CurrentState) + "\r\n" + "Neues Spiel beginnen?", "Spiel beendet", MessageBoxButtons.YesNo);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                     startNewGame();
             }
@@ -196,23 +198,27 @@ namespace _4GewinntWinForms
         {
             OptionsDialog dlg = new OptionsDialog();
             dlg.RandomStartplayerAlways = randomStartPlayerAlways;
-            dlg.ColorPlaryer1 = player1Color;
-            dlg.ColorPlaryer2 = player2Color;
+            dlg.ColorPlayer1 = player1Color;
+            dlg.ColorPlayer2 = player2Color;
+            dlg.NamePlayer1 = Player1Name;
+            dlg.NamePlayer2 = Player2Name;
 
             dlg.ShowDialog(this);
 
             if (dlg.OkClicked)
             {
-                bool mustRefreshColors = false;
+                bool mustRefreshPlayer = false;
                 this.randomStartPlayerAlways = dlg.RandomStartplayerAlways;
 
-                if (this.player1Color != dlg.ColorPlaryer1 || this.player2Color != dlg.ColorPlaryer2)
-                    mustRefreshColors = true;
+                if (this.player1Color != dlg.ColorPlayer1 || this.player2Color != dlg.ColorPlayer2 || this.Player1Name != dlg.NamePlayer1  || this.Player2Name != dlg.NamePlayer2 )
+                    mustRefreshPlayer = true;
 
-                this.player1Color = dlg.ColorPlaryer1;
-                this.player2Color = dlg.ColorPlaryer2;
+                this.player1Color = dlg.ColorPlayer1;
+                this.player2Color = dlg.ColorPlayer2;
+                this.Player1Name = dlg.NamePlayer1;
+                this.Player2Name = dlg.NamePlayer2;
 
-                if (mustRefreshColors)
+                if (mustRefreshPlayer)
                 {
                     refreshColors();
                 }
