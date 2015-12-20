@@ -134,9 +134,16 @@ namespace _4GewinntWinForms
 
                 if (control != null)
                 {
-                    business.doMove(control.Column);
-                    updateColumn(control.Column);
-                    showNewGameState();
+                    try
+                    {
+                        business.doMove(control.Column);
+                        updateColumn(control.Column);
+                        showNewGameState();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Diese Spalte ist schon geüllt!", "Fehler");
+                    }
                 }
             }
         }
