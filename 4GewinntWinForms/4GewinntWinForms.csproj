@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="business\CellValue.cs" />
+    <Compile Include="business\CellValueList.cs" />
+    <Compile Include="business\ConnectedFieldsCheckerDiagonal1.cs" />
     <Compile Include="business\ConnectedFieldsCheckerHorizontal.cs" />
     <Compile Include="business\ConnectedFieldsChecker.cs" />
     <Compile Include="business\Business.cs" />

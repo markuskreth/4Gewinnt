@@ -38,13 +38,12 @@ namespace _4GewinntTestProject
         {
 
             Assert.AreEqual(GameState.Player1, target.CurrentState);
-            CellState[,] cells = target.Cells;
-            Assert.AreEqual(7, cells.GetLength(0));
-            Assert.AreEqual(6, cells.GetLength(1));
+            
+            Assert.AreEqual(6*7, target.Cells.Count);
 
-            foreach (var cell in cells)
+            foreach (var cell in target.Cells)
             {
-                Assert.AreEqual(CellState.Empty, cell);
+                Assert.AreEqual(CellState.Empty, cell.Value);
             }
 
         }
@@ -52,166 +51,180 @@ namespace _4GewinntTestProject
         [TestMethod()]
         public void ensureCellPropertyCanNotChangeGame()
         {
-            CellState[,] cells;
-            cells = target.Cells;
-            cells[1, 1] = CellState.Player1;
-            Assert.AreEqual(CellState.Empty, target.Cells[1, 1]);
+            CellValue val = target.Cells[2];
+            val.Value = CellState.Player1;
+
+            Assert.AreEqual(CellState.Empty, target.Cells[2].Value);
         }
 
         [TestMethod()]
         public void ensureDoMovechangesCorrectColumnRow0()
         {
-            CellState[,] cells;
+
             int column;
 
             column = 6;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 0));
 
             column = 5;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 0]);
+            
+            Assert.AreEqual(CellState.Player2, target.get(column, 0));
 
             column = 4;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 0));
 
             column = 3;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 0]);
+            
+            Assert.AreEqual(CellState.Player2, target.get(column, 0));
 
             column = 2;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 0));
 
             column = 1;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 0]);
+            
+            Assert.AreEqual(CellState.Player2, target.get(column, 0));
 
             column = 0;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 0]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 0));
 
         }
 
         [TestMethod()]
         public void ensureDoMovechangesCorrectColumnRow1()
         {
-            CellState[,] cells;
             int column;
 
             fillLines(1);
 
             column = 6;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 1]);
+            
+            Assert.AreEqual(CellState.Player2, target.get(column, 1));
 
             column = 5;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 1));
 
             target.doMove(column);
             column = 4;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 1));
 
             column = 3;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 1]);
+            
+            Assert.AreEqual(CellState.Player2, target.get(column, 1));
 
             column = 2;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 1));
 
             column = 1;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 1]);
+            
+            Assert.AreEqual(CellState.Player2, target.get(column, 1));
 
             column = 0;
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player1, cells[column, 1]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 1));
 
         }
 
         [TestMethod()]
         public void ensureDoMovechangesCorrectColumnRow5()
         {
-            CellState[,] cells;
-            int column;
-
             fillLines(4);
+
+            int column;
 
             column = 6;
             target.doMove(column);
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 5]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 4));
+            Assert.AreEqual(CellState.Player2, target.get(column, 5));
 
             column = 5;
             target.doMove(column);
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 5]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 4));
+            Assert.AreEqual(CellState.Player2, target.get(column, 5));
 
             column = 4;
             target.doMove(column);
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 5]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 4));
+            Assert.AreEqual(CellState.Player2, target.get(column, 5));
 
-            //column = 3;
-            //target.doMove(column);
-            //target.doMove(column);
-            //cells = target.Cells;
-            //Assert.AreEqual(CellState.Player2, cells[column, 5]);
+            // Spalte 3 auslassen, damit Spiel nicht endet.
 
             column = 2;
             target.doMove(column);
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 5]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 4));
+            Assert.AreEqual(CellState.Player2, target.get(column, 5));
 
             column = 1;
             target.doMove(column);
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 5]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 4));
+            Assert.AreEqual(CellState.Player2, target.get(column, 5));
 
             column = 0;
             target.doMove(column);
             target.doMove(column);
-            cells = target.Cells;
-            Assert.AreEqual(CellState.Player2, cells[column, 5]);
+            
+            Assert.AreEqual(CellState.Player1, target.get(column, 4));
+            Assert.AreEqual(CellState.Player2, target.get(column, 5));
 
         }
 
-        //[TestMethod()]
-        //public void testFillLines()
-        //{
-        //    fillLines(6);
-        //    Assert.AreEqual(GameState.Tie, target.CurrentState);
-        //}
+        [TestMethod()]
+        public void testFillLines()
+        {
+            fillLines(6);
+            CellValueList cells = target.Cells;
+
+            foreach (var cell in cells)
+            {
+                Assert.AreNotEqual(CellState.Empty, cell.Value);
+            }
+
+        }
 
         private void fillLines(int lineCount)
         {
             for (int y = 0; y < lineCount; y++)
             {
-                for (int x = 0; x < 7; x++)
+                for (int x = 0; x < target.ColumnCount; x++)
                 {
+                    if (x == 3)
+                    {
+                        target.doMove(4);
+                        target.doMove(x);
+                        x++;
+                        continue;
+                    }
+
                     target.doMove(x);
                 }
             }

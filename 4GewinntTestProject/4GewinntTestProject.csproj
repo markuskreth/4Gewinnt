@@ -57,6 +57,7 @@
     <Compile Include="BusinessCellStateTest.cs" />
     <Compile Include="BusinessGameStateTest.cs" />
     <Compile Include="BusinessTest.cs" />
+    <Compile Include="CellValueListTest.cs" />
     <Compile Include="GameStateCheckerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

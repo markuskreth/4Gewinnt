@@ -43,12 +43,21 @@ namespace _4GewinntTestProject
             GameState state;
 
             state = target.doMove(0);
-            state = target.doMove(0);   // Player 2
-            state = target.doMove(1);
-            state = target.doMove(0);   // Player 2
-            state = target.doMove(2);
-            state = target.doMove(0);   // Player 2
+            Assert.AreEqual(GameState.Player2, state);
 
+            state = target.doMove(0);   // Player 2
+            Assert.AreEqual(GameState.Player1, state);
+
+            state = target.doMove(1);
+            Assert.AreEqual(GameState.Player2, state);
+
+            state = target.doMove(0);   // Player 2
+            Assert.AreEqual(GameState.Player1, state);
+
+            state = target.doMove(2);
+            Assert.AreEqual(GameState.Player2, state);
+
+            state = target.doMove(0);   // Player 2
             Assert.AreEqual(GameState.Player1, state);
 
             state = target.doMove(3);

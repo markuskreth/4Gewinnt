@@ -2,43 +2,56 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace _4GewinntWinForms.business
 {
     public abstract class ConnectedFieldsChecker
     {
 
-        protected int rowLength = 1;
+        protected CellValueList connected;
         protected int tmp = 1;
         protected CellState item;
         protected CellField cells;
 
-        public ConnectedFieldsChecker(CellField cells)
+        public void setCells(CellField cells)
         {
             this.cells = cells;
         }
 
-        public int check(int column, int row)
+        public CellValueList check(int column, int row)
         {
+            connected = new CellValueList();
+
             item = cells.get(column, row);
+            CellValue v = new CellValue(column, row, item);
+            connected.Add(v);
+
             countConnected1(column, row);
             countConnected2(column, row);
-            return rowLength;
+            return connected;
         }
 
         protected abstract void countConnected1(int column, int row);
         protected abstract void countConnected2(int column, int row);
 
-        protected delegate bool Condition();
+        protected delegate CellValue Condition();
 
         protected void countRowItems(Condition con)
         {
             tmp = 1;
-            while (rowLength < 4 && con.Invoke())
+            while (connected.Count  < 4)
             {
-                tmp++;
-                rowLength++;
+                CellValue v = con.Invoke();
+                if (v != CellValue.INVALID)
+                {
+                    connected.Add(v);
+                    tmp++;
+                }
+                else
+                    return;
             }
+
         }
 
     }

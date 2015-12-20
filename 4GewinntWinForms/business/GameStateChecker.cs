@@ -8,39 +8,35 @@ namespace _4GewinntWinForms.business
     public class GameStateChecker
     {
 
-        private int rowLength = 1;
-        private int tmp = 1;
+        List<ConnectedFieldsChecker> checkerList = new List<ConnectedFieldsChecker>();
+        
+        public GameStateChecker()
+        {
+            checkerList.Add(new ConnectedFieldsCheckerVertical());
+            checkerList.Add(new ConnectedFieldsCheckerHorizontal());
+            checkerList.Add(new ConnectedFieldsCheckerDiagonal1());
+            checkerList.Add(new ConnectedFieldsCheckerDiagonal2());
+        }
 
-        public GameState checkGameEnd(CellField cells, int column, int row)
+        public CellValueList checkGameEnd(CellField cells, int column, int row)
         {
             GameState _currentState = map(cells.get(column, row));
-            List<ConnectedFieldsChecker> checkerList = new List<ConnectedFieldsChecker>();
-            checkerList.Add(new ConnectedFieldsCheckerVertical(cells));
-            checkerList.Add(new ConnectedFieldsCheckerHorizontal(cells));
+            CellValueList values;
 
             foreach (ConnectedFieldsChecker checker in checkerList)
             {
+                checker.setCells(cells);
+                values = checker.check(column, row);
 
-                rowLength = checker.check(column, row);
-
-                if (rowLength == 4)
-                    return makePlayerWin(_currentState);
+                if (values.Count == 4)
+                    return values;
 
             }
 
-            return switchPlayer(_currentState);
+            return new CellValueList();
         }
 
         private delegate bool Condition();
-
-        private void countRowItems(Condition con)
-        {
-            while (con.Invoke())
-            {
-                tmp++;
-                rowLength++;
-            }
-        }
 
         private GameState map(CellState cellState)
         {
@@ -59,15 +55,6 @@ namespace _4GewinntWinForms.business
                 state = GameState.Player2;
             else if (state == GameState.Player2)
                 state = GameState.Player1;
-            return state;
-        }
-
-        private GameState makePlayerWin(GameState state)
-        {
-            if (state == GameState.Player1)
-                state = GameState.Player1HasWon;
-            else if (state == GameState.Player2)
-                state = GameState.Player2HasWon;
             return state;
         }
 

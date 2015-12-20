@@ -8,19 +8,23 @@ namespace _4GewinntWinForms.business
     public class ConnectedFieldsCheckerHorizontal : ConnectedFieldsChecker
     {
 
-        public ConnectedFieldsCheckerHorizontal(CellField cells)
-            : base(cells)
-        {
-        }
-
         protected override void countConnected1(int column, int row)
         {
             Condition con = delegate()
             {
-                bool result = column - tmp >= 0;
+                int actCol = column - tmp;
+                int actRow = row;
+
+                bool result = actCol >= 0;
                 if (result)
-                    result &= cells.get(column - tmp, row) == item;
-                return result;
+                    result &= cells.get(actCol, row) == item;
+
+                if (result)
+                {
+                    return new CellValue(actCol, actRow, item);
+                }
+                else
+                    return CellValue.INVALID;
             };
 
             countRowItems(con);
@@ -31,10 +35,19 @@ namespace _4GewinntWinForms.business
         {
             Condition con = delegate()
             {
-                bool result = column + tmp < cells.GetLength0();
+                int actCol = column + tmp;
+                int actRow = row;
+
+                bool result = actCol < cells.GetLength0();
                 if (result)
-                    result &= cells.get(column + tmp, row) == item;
-                return result;
+                    result &= cells.get(actCol, row) == item;
+
+                if (result)
+                {
+                    return new CellValue(actCol, actRow, item);
+                }
+                else
+                    return CellValue.INVALID;
             };
 
             countRowItems(con);
