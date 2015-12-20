@@ -57,6 +57,12 @@
     <Compile Include="business\GameState.cs" />
     <Compile Include="business\GameStateChecker.cs" />
     <Compile Include="business\ConnectedFieldsCheckerVertical.cs" />
+    <Compile Include="GUI\CellControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\CellControl.Designer.cs">
+      <DependentUpon>CellControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpielBrett.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SpielBrett.resx">
+      <DependentUpon>SpielBrett.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
