@@ -34,26 +34,11 @@ namespace _4GewinntWinForms.business
             return cells.get(column, row);
         }
 
-        public delegate CellState Value(int column, int row, CellState state);
-        
-        public void forEach(Value value)
-        {
-            for (int row = 0; row < cells.GetLength0(); row++)
-            {
-                for (int column = 0; column < cells.GetLength1(); column++)
-                {
-                    CellState state = cells.get(column, row);
-                    CellState newSTate = value.Invoke(column, row, state);
-                    cells.set(column, row, newSTate);
-                }
-            }
-        }
-
         public byte ColumnCount
         {
             get
             {
-                int cols = cells.GetLength0();
+                int cols = cells.ColumnCount();
                 return (byte)cols;
             }
         }
@@ -62,7 +47,7 @@ namespace _4GewinntWinForms.business
         {
             get
             {
-                int cols = cells.GetLength1();
+                int cols = cells.RowCount();
                 return (byte)cols;
             }
         }
@@ -118,7 +103,7 @@ namespace _4GewinntWinForms.business
 
             cells.set(column, row, player);
             List<CellValue> connected = checker.checkGameEnd(cells, column, row);
-            
+
             if (connected.Count >= 4)
                 nextState = makePlayerWin(player);
 

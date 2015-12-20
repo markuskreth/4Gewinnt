@@ -43,9 +43,9 @@ namespace _4GewinntWinForms.business
         {
             CellValueList list = new CellValueList();
 
-            for (int col = 0; col < GetLength0(); col++)
+            for (int col = 0; col < ColumnCount(); col++)
             {
-                for (int row = 0; row < GetLength1(); row++)
+                for (int row = 0; row < RowCount(); row++)
                 {
                     list.Add(new CellValue(col, row, get(col, row)));
                 }
@@ -64,12 +64,12 @@ namespace _4GewinntWinForms.business
             cells[column, row] = state;
         }
 
-        internal int GetLength1()
+        internal int RowCount()
         {
             return cells.GetLength(1);
         }
 
-        internal int GetLength0()
+        internal int ColumnCount()
         {
             return cells.GetLength(0);
         }

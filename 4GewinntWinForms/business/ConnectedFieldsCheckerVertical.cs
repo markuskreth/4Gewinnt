@@ -16,7 +16,7 @@ namespace _4GewinntWinForms.business
                 int actRow = row + tmp;
                 int actCol = column;
 
-                bool result = actRow < cells.GetLength1();
+                bool result = actRow < cells.RowCount();
                 if (result)
                     result &= cells.get(column, actRow) == item;
 

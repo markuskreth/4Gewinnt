@@ -14,7 +14,7 @@ namespace _4GewinntWinForms.business
                 int actRow = row + tmp;
                 int actCol = column + tmp;
 
-                bool result = actRow < cells.GetLength1() && actCol < cells.GetLength0();
+                bool result = actRow < cells.RowCount() && actCol < cells.ColumnCount();
                 
                 if (result)
                     result &= cells.get(actCol, actRow) == item;
@@ -66,7 +66,7 @@ namespace _4GewinntWinForms.business
                 int actRow = row - tmp;
                 int actCol = column + tmp;
 
-                bool result = actRow >= 0 && actCol < cells.GetLength0();
+                bool result = actRow >= 0 && actCol < cells.ColumnCount();
                 if (result)
                     result &= cells.get(actCol, actRow) == item;
 
@@ -90,7 +90,7 @@ namespace _4GewinntWinForms.business
                 int actRow = row + tmp;
                 int actCol = column - tmp;
 
-                bool result = actCol >= 0 && actRow < cells.GetLength1();
+                bool result = actCol >= 0 && actRow < cells.RowCount();
                 if (result)
                     result &= cells.get(actCol, actRow) == item;
 

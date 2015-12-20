@@ -38,7 +38,7 @@ namespace _4GewinntWinForms.business
                 int actCol = column + tmp;
                 int actRow = row;
 
-                bool result = actCol < cells.GetLength0();
+                bool result = actCol < cells.ColumnCount();
                 if (result)
                     result &= cells.get(actCol, row) == item;
 

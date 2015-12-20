@@ -45,12 +45,27 @@ namespace _4GewinntWinForms
                     return Color.DarkGray;
             }
 
-            //if (state == CellState.Player1)
-            //    return Color.Red;
-
-            //if (state == CellState.Player2)
-            //    return Color.Yellow;
         }
+
+        private String GameStateToSting(GameState state)
+        {
+            switch (state)
+            {
+                case GameState.Player1:
+                    return "Spieler";
+                case GameState.Player2:
+                    return "Spieler";
+                case GameState.Tie:
+                    return "Spiel beendet: Unentschieden";
+                case GameState.Player1HasWon:
+                    return "Spiel beendet: Spieler Rot hat gewonnen!";
+                case GameState.Player2HasWon:
+                    return "Spiel beendet: Spieler Gelb hat gewonnen!";
+                default:
+                    return "";
+            }
+        }
+
 
         private void initCells()
         {
@@ -113,25 +128,6 @@ namespace _4GewinntWinForms
                 MessageBox.Show(GameStateToSting(business.CurrentState));
             }
             
-        }
-
-        private String GameStateToSting(GameState state)
-        {
-            switch (state)
-            {
-                case GameState.Player1:
-                    return "Spieler";
-                case GameState.Player2:
-                    return "Spieler";
-                case GameState.Tie:
-                    return "Spiel beendet: Unentschieden";
-                case GameState.Player1HasWon:
-                    return "Spiel beendet: Spieler 1 hat gewonnen!";
-                case GameState.Player2HasWon:
-                    return "Spiel beendet: Spieler 2 hat gewonnen!";
-                default:
-                    return "";
-            }
         }
 
         private void neuesSpielToolStripMenuItem_Click(object sender, EventArgs e)
