@@ -93,6 +93,8 @@ namespace _4GewinntWinForms
 
         void cellControlClick(object sender, EventArgs e)
         {
+            toolStripButtonRandomStarter.Enabled = false;
+
             if (business.CurrentState == GameState.Player2HasWon || business.CurrentState == GameState.Player1HasWon || business.CurrentState == GameState.Tie)
             {
                 showNewGameState();
@@ -134,6 +136,7 @@ namespace _4GewinntWinForms
 
         private void startNewGame()
         {
+            toolStripButtonRandomStarter.Enabled = true;
             business.startNewGame();
             initCells();
             showNewGameState();
@@ -152,6 +155,12 @@ namespace _4GewinntWinForms
         private void toolStripButtonNewGame_Click(object sender, EventArgs e)
         {
             startNewGame();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            business.randomStartPlayer();
+            showNewGameState();
         }
 
     }

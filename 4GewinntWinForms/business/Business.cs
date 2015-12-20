@@ -64,7 +64,7 @@ namespace _4GewinntWinForms.business
         }
 
         /// <summary>
-        /// Aktueller Spielstatus
+        /// Aktueller Spielstatus.
         /// </summary>
         public GameState CurrentState
         {
@@ -72,6 +72,22 @@ namespace _4GewinntWinForms.business
             {
                 return _currentState;
             }
+        }
+
+        public GameState randomStartPlayer()
+        {
+            if (isFieldEmpty())
+            {
+                int index = new Random().Next(2);
+                if (index == 0)
+                    _currentState = GameState.Player1;
+                else
+                    _currentState = GameState.Player2;
+                
+                if (index > 1)
+                    throw new IndexOutOfRangeException("Ungültige Zufallszahl");
+            }
+            return _currentState;
         }
 
         /// <summary>
@@ -124,8 +140,23 @@ namespace _4GewinntWinForms.business
                     break;
                 }
             }
-            
+
             return nothingEmpty;
+        }
+
+        private bool isFieldEmpty()
+        {
+            bool empty = true;
+            for (int column = 0; column < cells.ColumnCount(); column++)
+            {
+                if (cells.get(column, 0) != CellState.Empty)
+                {
+                    empty = false;
+                    break;
+                }
+            }
+
+            return empty;
         }
 
         private GameState makePlayerWin(CellState state)

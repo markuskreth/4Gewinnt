@@ -40,6 +40,7 @@
             this.toolStripStatusColor = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNewGame = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonRandomStarter = new System.Windows.Forms.ToolStripButton();
             this.mainMenu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -138,7 +139,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonNewGame});
+            this.toolStripButtonNewGame,
+            this.toolStripButtonRandomStarter});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(478, 25);
@@ -155,6 +157,16 @@
             this.toolStripButtonNewGame.Text = "toolStripButton1";
             this.toolStripButtonNewGame.ToolTipText = "&Neues Spiel";
             this.toolStripButtonNewGame.Click += new System.EventHandler(this.toolStripButtonNewGame_Click);
+            // 
+            // toolStripButtonRandomStarter
+            // 
+            this.toolStripButtonRandomStarter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRandomStarter.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRandomStarter.Image")));
+            this.toolStripButtonRandomStarter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRandomStarter.Name = "toolStripButtonRandomStarter";
+            this.toolStripButtonRandomStarter.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonRandomStarter.Text = "Zufälligen Startspieler festlegen";
+            this.toolStripButtonRandomStarter.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // SpielBrett
             // 
@@ -192,6 +204,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusColor;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonNewGame;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRandomStarter;
     }
 }
 
