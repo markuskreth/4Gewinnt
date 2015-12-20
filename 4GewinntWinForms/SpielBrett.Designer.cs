@@ -33,7 +33,12 @@
             this.neuesSpielToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusPlayer = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripColor = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusColor = new System.Windows.Forms.ToolStripStatusLabel();
             this.mainMenu.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -42,7 +47,7 @@
             this.menuItemFile});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(476, 24);
+            this.mainMenu.Size = new System.Drawing.Size(478, 24);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "MainMenu";
             // 
@@ -92,14 +97,46 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(451, 353);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(453, 361);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.AutoSize = false;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusPlayer,
+            this.toolStripColor,
+            this.toolStripStatusColor});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 392);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(478, 50);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusPlayer
+            // 
+            this.toolStripStatusPlayer.Name = "toolStripStatusPlayer";
+            this.toolStripStatusPlayer.Size = new System.Drawing.Size(48, 45);
+            this.toolStripStatusPlayer.Text = "Spieler: ";
+            // 
+            // toolStripColor
+            // 
+            this.toolStripColor.Name = "toolStripColor";
+            this.toolStripColor.Size = new System.Drawing.Size(0, 45);
+            // 
+            // toolStripStatusColor
+            // 
+            this.toolStripStatusColor.AutoSize = false;
+            this.toolStripStatusColor.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripStatusColor.Name = "toolStripStatusColor";
+            this.toolStripStatusColor.Size = new System.Drawing.Size(90, 45);
             // 
             // SpielBrett
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 393);
+            this.ClientSize = new System.Drawing.Size(478, 442);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.mainMenu);
             this.MainMenuStrip = this.mainMenu;
@@ -107,6 +144,8 @@
             this.Text = "Vier Gewinnt";
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +158,10 @@
         private System.Windows.Forms.ToolStripMenuItem neuesSpielToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusPlayer;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripColor;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusColor;
     }
 }
 

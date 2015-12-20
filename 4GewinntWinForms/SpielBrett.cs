@@ -24,11 +24,39 @@ namespace _4GewinntWinForms
             InitializeComponent();
             this.business = new business.Business();
             initCells();
+            showNewGameState();
+        }
+
+        private Color GameStateToColor(GameState state)
+        {
+            switch (state)
+            {
+                case GameState.Player1: 
+                    return Color.Red;
+                case GameState.Player2:
+                    return Color.Yellow;
+                case GameState.Tie:
+                    return Color.DarkGray;
+                case GameState.Player1HasWon: 
+                    return Color.Red;
+                case GameState.Player2HasWon:
+                    return Color.Yellow;
+                default:
+                    return Color.DarkGray;
+            }
+
+            //if (state == CellState.Player1)
+            //    return Color.Red;
+
+            //if (state == CellState.Player2)
+            //    return Color.Yellow;
         }
 
         private void initCells()
         {
             tableLayoutPanel1.Controls.Clear();
+            cellControlls.Clear();
+
             int rowCount = business.RowCount;
             int colCount = business.ColumnCount;
 
@@ -50,13 +78,21 @@ namespace _4GewinntWinForms
 
         void cellControlClick(object sender, EventArgs e)
         {
-            CellControl control = sender as CellControl;
-
-            if (control != null)
+            if (business.CurrentState == GameState.Player2HasWon || business.CurrentState == GameState.Player1HasWon)
             {
-                business.doMove(control.Column);
-                updateColumn(control.Column);
                 showNewGameState();
+            }
+            else
+            {
+
+                CellControl control = sender as CellControl;
+
+                if (control != null)
+                {
+                    business.doMove(control.Column);
+                    updateColumn(control.Column);
+                    showNewGameState();
+                }
             }
         }
 
@@ -70,12 +106,38 @@ namespace _4GewinntWinForms
 
         private void showNewGameState()
         {
-            MessageBox.Show("Neuer GameState=" + business.CurrentState);
+            toolStripStatusColor.BackColor = GameStateToColor(business.CurrentState);
+            toolStripStatusPlayer.Text = GameStateToSting(business.CurrentState);
+            if (business.CurrentState == GameState.Player2HasWon || business.CurrentState == GameState.Player1HasWon || business.CurrentState == GameState.Tie)
+            {
+                MessageBox.Show(GameStateToSting(business.CurrentState));
+            }
+            
+        }
+
+        private String GameStateToSting(GameState state)
+        {
+            switch (state)
+            {
+                case GameState.Player1:
+                    return "Spieler";
+                case GameState.Player2:
+                    return "Spieler";
+                case GameState.Tie:
+                    return "Spiel beendet: Unentschieden";
+                case GameState.Player1HasWon:
+                    return "Spiel beendet: Spieler 1 hat gewonnen!";
+                case GameState.Player2HasWon:
+                    return "Spiel beendet: Spieler 2 hat gewonnen!";
+                default:
+                    return "";
+            }
         }
 
         private void neuesSpielToolStripMenuItem_Click(object sender, EventArgs e)
         {
             business.startNewGame();
+            initCells();
         }
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
