@@ -14,18 +14,19 @@ namespace _4GewinntWinForms.business
         public GameState checkGameEnd(CellField cells, int column, int row)
         {
             GameState _currentState = map(cells.get(column, row));
+            List<ConnectedFieldsChecker> checkerList = new List<ConnectedFieldsChecker>();
+            checkerList.Add(new ConnectedFieldsCheckerVertical(cells));
+            checkerList.Add(new ConnectedFieldsCheckerHorizontal(cells));
 
-            ConnectedFieldsChecker checker = new ConnectedFieldsCheckerVertical(cells);
-            rowLength = checker.check(column, row);
+            foreach (ConnectedFieldsChecker checker in checkerList)
+            {
 
-            if (rowLength == 4)
-                return makePlayerWin(_currentState);
+                rowLength = checker.check(column, row);
 
-            checker = new ConnectedFieldsCheckerHorizontal(cells);
-            rowLength = checker.check(column, row);
+                if (rowLength == 4)
+                    return makePlayerWin(_currentState);
 
-            if (rowLength == 4)
-                return makePlayerWin(_currentState);
+            }
 
             return switchPlayer(_currentState);
         }

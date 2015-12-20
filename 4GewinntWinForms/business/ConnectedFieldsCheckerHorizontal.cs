@@ -15,8 +15,6 @@ namespace _4GewinntWinForms.business
 
         protected override void countConnected1(int column, int row)
         {
-
-            tmp = 1;
             Condition con = delegate()
             {
                 bool result = column - tmp >= 0;
@@ -28,9 +26,9 @@ namespace _4GewinntWinForms.business
             countRowItems(con);
 
         }
+
         protected override void countConnected2(int column, int row)
         {
-            tmp = 1;
             Condition con = delegate()
             {
                 bool result = column + tmp < cells.GetLength0();

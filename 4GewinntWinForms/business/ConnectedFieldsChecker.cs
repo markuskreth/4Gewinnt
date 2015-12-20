@@ -33,6 +33,7 @@ namespace _4GewinntWinForms.business
 
         protected void countRowItems(Condition con)
         {
+            tmp = 1;
             while (rowLength < 4 && con.Invoke())
             {
                 tmp++;

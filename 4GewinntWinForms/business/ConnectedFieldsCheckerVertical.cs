@@ -14,10 +14,6 @@ namespace _4GewinntWinForms.business
         protected override void countConnected1(int column, int row)
         {
 
-            CellState item = cells.get(column, row);
-
-            rowLength = 1;
-            tmp = 1;
             Condition con = delegate()
             {
                 bool result = row + tmp < cells.GetLength1();
@@ -33,7 +29,6 @@ namespace _4GewinntWinForms.business
         protected override void countConnected2(int column, int row)
         {
 
-            tmp = 1;
             Condition con = delegate()
             {
                 bool result = row - tmp >= 0;
