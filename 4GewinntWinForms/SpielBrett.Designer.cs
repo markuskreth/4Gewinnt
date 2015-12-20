@@ -67,14 +67,14 @@
             // neuesSpielToolStripMenuItem
             // 
             this.neuesSpielToolStripMenuItem.Name = "neuesSpielToolStripMenuItem";
-            this.neuesSpielToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.neuesSpielToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.neuesSpielToolStripMenuItem.Text = "&Neues Spiel";
             this.neuesSpielToolStripMenuItem.Click += new System.EventHandler(this.neuesSpielToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.beendenToolStripMenuItem.Text = "&Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -153,6 +153,8 @@
             this.toolStripButtonNewGame.Name = "toolStripButtonNewGame";
             this.toolStripButtonNewGame.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonNewGame.Text = "toolStripButton1";
+            this.toolStripButtonNewGame.ToolTipText = "&Neues Spiel";
+            this.toolStripButtonNewGame.Click += new System.EventHandler(this.toolStripButtonNewGame_Click);
             // 
             // SpielBrett
             // 

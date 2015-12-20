@@ -125,20 +125,33 @@ namespace _4GewinntWinForms
             toolStripStatusPlayer.Text = GameStateToSting(business.CurrentState);
             if (business.CurrentState == GameState.Player2HasWon || business.CurrentState == GameState.Player1HasWon || business.CurrentState == GameState.Tie)
             {
-                MessageBox.Show(GameStateToSting(business.CurrentState));
+                DialogResult result =  MessageBox.Show(this, GameStateToSting(business.CurrentState) + "\r\n" + "Neues Spiel beginnen?", "Spiel beendet", MessageBoxButtons.YesNo);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                    startNewGame();
             }
             
         }
 
-        private void neuesSpielToolStripMenuItem_Click(object sender, EventArgs e)
+        private void startNewGame()
         {
             business.startNewGame();
             initCells();
+            showNewGameState();
+        }
+
+        private void neuesSpielToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            startNewGame();
         }
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Dispose(true);
+        }
+
+        private void toolStripButtonNewGame_Click(object sender, EventArgs e)
+        {
+            startNewGame();
         }
 
     }
