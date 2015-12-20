@@ -41,6 +41,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNewGame = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRandomStarter = new System.Windows.Forms.ToolStripButton();
+            this.optionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -49,7 +50,8 @@
             // mainMenu
             // 
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemFile});
+            this.menuItemFile,
+            this.optionenToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Size = new System.Drawing.Size(478, 24);
@@ -168,6 +170,13 @@
             this.toolStripButtonRandomStarter.Text = "Zufälligen Startspieler festlegen";
             this.toolStripButtonRandomStarter.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // optionenToolStripMenuItem
+            // 
+            this.optionenToolStripMenuItem.Name = "optionenToolStripMenuItem";
+            this.optionenToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.optionenToolStripMenuItem.Text = "Optionen";
+            this.optionenToolStripMenuItem.Click += new System.EventHandler(this.optionenToolStripMenuItem_Click);
+            // 
             // SpielBrett
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +214,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonNewGame;
         private System.Windows.Forms.ToolStripButton toolStripButtonRandomStarter;
+        private System.Windows.Forms.ToolStripMenuItem optionenToolStripMenuItem;
     }
 }
 

@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using _4GewinntWinForms.business;
+using _4GewinntWinForms.GUI;
 
 namespace _4GewinntWinForms
 {
     public partial class SpielBrett : Form
     {
         private business.Business business;
+        private bool randomStartPlayerAlways = false;
+        private Color player1Color = Color.Red;
+        private Color player2Color = Color.Yellow;
+
         /// <summary>
         /// Der Index jedes CellControls wird berechnet durch Row * 100 + Column
         /// </summary>
@@ -32,15 +37,12 @@ namespace _4GewinntWinForms
             switch (state)
             {
                 case GameState.Player1: 
-                    return Color.Red;
-                case GameState.Player2:
-                    return Color.Yellow;
-                case GameState.Tie:
-                    return Color.DarkGray;
                 case GameState.Player1HasWon: 
-                    return Color.Red;
+                    return player1Color;
+                case GameState.Player2:
                 case GameState.Player2HasWon:
-                    return Color.Yellow;
+                    return player2Color;
+                case GameState.Tie:
                 default:
                     return Color.DarkGray;
             }
@@ -49,6 +51,8 @@ namespace _4GewinntWinForms
 
         private String GameStateToSting(GameState state)
         {
+            String playerName = "";
+
             switch (state)
             {
                 case GameState.Player1:
@@ -58,9 +62,18 @@ namespace _4GewinntWinForms
                 case GameState.Tie:
                     return "Spiel beendet: Unentschieden";
                 case GameState.Player1HasWon:
-                    return "Spiel beendet: Spieler Rot hat gewonnen!";
+                    if (player1Color.IsNamedColor)
+                        playerName = player1Color.Name;
+                    else
+                        playerName = " 1";
+                    return "Spiel beendet: Spieler " + playerName + " hat gewonnen!";
                 case GameState.Player2HasWon:
-                    return "Spiel beendet: Spieler Gelb hat gewonnen!";
+
+                    if (player2Color.IsNamedColor)
+                        playerName = player2Color.Name;
+                    else
+                        playerName = " 2";
+                    return "Spiel beendet: Spieler " + playerName + " hat gewonnen!";
                 default:
                     return "";
             }
@@ -83,6 +96,8 @@ namespace _4GewinntWinForms
 
                 control.Row = cell.Row;
                 control.Column = cell.Column;
+                control.StateToColor = StateToColor;
+
                 control.Click += new EventHandler(cellControlClick);
                 control.Show();
                 
@@ -91,6 +106,17 @@ namespace _4GewinntWinForms
             }
         }
 
+        private Color StateToColor(CellState state)
+        {
+            if (state == CellState.Player1)
+                return player1Color;
+
+            if (state == CellState.Player2)
+                return player2Color;
+
+            return Color.DarkGray;
+
+        }
         void cellControlClick(object sender, EventArgs e)
         {
             toolStripButtonRandomStarter.Enabled = false;
@@ -139,6 +165,9 @@ namespace _4GewinntWinForms
             toolStripButtonRandomStarter.Enabled = true;
             business.startNewGame();
             initCells();
+            if (randomStartPlayerAlways)
+                business.randomStartPlayer();
+
             showNewGameState();
         }
 
@@ -161,6 +190,43 @@ namespace _4GewinntWinForms
         {
             business.randomStartPlayer();
             showNewGameState();
+        }
+
+        private void optionenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OptionsDialog dlg = new OptionsDialog();
+            dlg.RandomStartplayerAlways = randomStartPlayerAlways;
+            dlg.ColorPlaryer1 = player1Color;
+            dlg.ColorPlaryer2 = player2Color;
+
+            dlg.ShowDialog(this);
+
+            if (dlg.OkClicked)
+            {
+                bool mustRefreshColors = false;
+                this.randomStartPlayerAlways = dlg.RandomStartplayerAlways;
+
+                if (this.player1Color != dlg.ColorPlaryer1 || this.player2Color != dlg.ColorPlaryer2)
+                    mustRefreshColors = true;
+
+                this.player1Color = dlg.ColorPlaryer1;
+                this.player2Color = dlg.ColorPlaryer2;
+
+                if (mustRefreshColors)
+                {
+                    refreshColors();
+                }
+            }
+
+        }
+
+        private void refreshColors()
+        {
+            showNewGameState();
+            foreach (var cell in cellControlls)
+            {
+                cell.Value.Invalidate();
+            }
         }
 
     }

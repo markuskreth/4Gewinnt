@@ -50,17 +50,8 @@ namespace _4GewinntWinForms
             pe.Graphics.FillEllipse(myBrush, x, y, diameter, diameter);
         }
 
-        private Color StateToColor(CellState state)
-        {
-            if (state == CellState.Player1)
-                return Color.Red;
-
-            if (state == CellState.Player2)
-                return Color.Yellow;
-
-            return Color.DarkGray;
-            
-        }
+        public delegate Color CellState2Color(CellState state);
+        public CellState2Color StateToColor;
         
         public CellState Status
         {
