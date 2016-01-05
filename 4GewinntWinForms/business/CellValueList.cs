@@ -42,5 +42,6 @@ namespace _4GewinntWinForms.business
             }
             return hash;
         }
+
     }
 }

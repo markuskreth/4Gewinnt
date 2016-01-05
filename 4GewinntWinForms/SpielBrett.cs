@@ -49,10 +49,8 @@ namespace _4GewinntWinForms
 
         }
 
-        private String StateToSting(GameState state)
+        private String StateToString(GameState state)
         {
-            String playerName = "";
-
             switch (state)
             {
                 case GameState.Player1:
@@ -62,18 +60,9 @@ namespace _4GewinntWinForms
                 case GameState.Tie:
                     return "Spiel beendet: Unentschieden";
                 case GameState.Player1HasWon:
-                    if (player1Color.IsNamedColor)
-                        playerName = Player1Name ;
-                    else
-                        playerName = " 1";
-                    return "Spiel beendet: " + playerName + " hat gewonnen!";
+                    return "Spiel beendet: " + Player1Name + " hat gewonnen!";
                 case GameState.Player2HasWon:
-
-                    if (player2Color.IsNamedColor)
-                        playerName = Player2Name;
-                    else
-                        playerName = " 2";
-                    return "Spiel beendet: " + playerName + " hat gewonnen!";
+                    return "Spiel beendet: " + Player2Name + " hat gewonnen!";
                 default:
                     return "";
             }
@@ -139,7 +128,7 @@ namespace _4GewinntWinForms
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Diese Spalte ist schon geüllt!", "Fehler");
+                        MessageBox.Show(this, "Diese Spalte ist schon gefüllt!", "Fehler", MessageBoxButtons.OK);
                     }
                 }
             }
@@ -156,10 +145,10 @@ namespace _4GewinntWinForms
         private void showNewGameState()
         {
             toolStripStatusColor.BackColor = GameStateToColor(business.CurrentState);
-            toolStripStatusPlayer.Text = StateToSting(business.CurrentState);
+            toolStripStatusPlayer.Text = StateToString(business.CurrentState);
             if (business.CurrentState == GameState.Player2HasWon || business.CurrentState == GameState.Player1HasWon || business.CurrentState == GameState.Tie)
             {
-                DialogResult result =  MessageBox.Show(this, StateToSting(business.CurrentState) + "\r\n" + "Neues Spiel beginnen?", "Spiel beendet", MessageBoxButtons.YesNo);
+                DialogResult result =  MessageBox.Show(this, StateToString(business.CurrentState) + "\r\n" + "Neues Spiel beginnen?", "Spiel beendet", MessageBoxButtons.YesNo);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                     startNewGame();
             }
